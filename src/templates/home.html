@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+    <div class="mb-16 center">
+        <h1 class="title fs-26">Meus cursos e certificados</h1>
+    </div>
+
+    <div class="center mb-16">
+        <h2 class="fs-22 mb-16 title">Concluídos</h2>
+    </div>
+    {% if certificados %}
+    {% for matricula, certificado, curso in certificados %}
+    <div class="card border-black mb-16"> 
+        <div class="card-title mb-16">
+            <h3 class="fs-22">{{ curso.nome }}</h3>
+        </div>
+        <p class="mb-16">Carga horária: {{ curso.carga_horaria }} horas</p>
+        <div class="card-body gap-16">
+            <a href="/curso/{{ curso.id }}" class="btn btn-blue w-100 center">Acessar</a>
+            <a href="/matricula/{{ matricula.id }}/certificado" class="btn btn-green w-100 center">Certificado</a>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="center mb-16">
+        <p class="fs-18">Você ainda não concluiu nenhum curso</p>
+    </div>
+    {% endif %}
+
+    <div class="center mb-16">
+        <h2 class="fs-22 mb-16 title">Em andamento</h2>
+    </div>
+
+    {% if matriculas %}
+    {% for usuario, curso, matricula in matriculas %}
+    <div class="card border-black mb-16"> 
+        <div class="card-title mb-16">
+            <h3 class="fs-22">{{ curso.nome }}</h3>
+        </div>
+        <p class="mb-16">Carga horária: {{ curso.carga_horaria }} horas</p>
+        <div class="card-body gap-16">
+            <a href="/curso/{{ curso.id }}" class="btn btn-blue w-100 center">Acessar</a>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="center mb-16">
+        <p class="fs-18">Você não tem nenhum curso em andamento</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

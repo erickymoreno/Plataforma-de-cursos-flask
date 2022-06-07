@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plataforma de Cursos</title>
+</head>
+
+<body>
+
+    <header class="mb-16">
+        <div class="header">
+            <a href="/" class="title fs-22 text-white">Plataforma de Cursos</a>
+            {% if current_user.is_authenticated %}
+            <nav id="nav">
+                <button class="p-0" id="btn-menu">
+                    <span class="menu-icon"></span> </button>
+                <ul class="menu fs-18 text-white">
+                    <li class="nav-item"><a href="/" class="text-white">Início</a></li>
+                    <li class="nav-item"><a href="/home" class="text-white">Meus Cursos</a></li>
+                </ul>
+            </nav>
+            {% else %}
+            <div class="d-flex align-self-center">
+                <a href="/login" class="btn btn-blue fs-22">Login</a>
+            </div>
+            {% endif %}
+        </div>
+    </header>
+    <main class="main">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="https://cdn.tiny.cloud/1/spluab9z3h81ygbb63ft8k4m5pv5h72fm7h9v0qxugbrlto6/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+</body>
+
+</html>
+
+<script>
+    tinymce.init({
+      selector: 'cadastro',
+      plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+      toolbar_mode: 'floating',
+   });
+  </script>

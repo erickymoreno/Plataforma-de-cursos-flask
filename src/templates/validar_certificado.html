@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+    <div class="form-title mb-16">
+        <h1 class="title fs-26">Validar certificado</h1>
+    </div>
+
+    {% if query %}
+    <div class="mb-16">
+        {% for usuario, curso, matricula, certificado in query %}
+
+        <p class="fs-22">Certificamos para os devidos fins que <span class="title">{{usuario.nome}}</span>
+            concluiu o
+            curso de {{curso.nome}} com <span class="title">carga horária de {{curso.carga_horaria}}
+                horas</span>. </p>
+    </div>
+    <p class="mb-16">Código do certificado: {{ certificado.id}}</p>
+    {% endfor %}
+    <p class="title fs-22 mb-16">Nova consulta</p>
+    {% endif %}
+
+    <div class="form">
+        <form method="POST">
+            <div class="form-group mb-16">
+                <label for="inputCodigo" class="form-label mb-16"><i class="bi bi-upc-scan"></i></i> Código do
+                    certificado</label>
+                <input name="inputCodigo" id="inputCodigo" class="form-input" autocomplete="off" required>
+            </div>
+
+            {% if mensagem %}
+            <div class="mb-16 text-red"><i class="bi bi-exclamation-circle"></i>
+                {{mensagem}}</div>
+            {% endif %}
+
+            <div class="mb-16">
+                <input type="submit" value="Validar" class="btn btn-blue w-100 fs-18"></input>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

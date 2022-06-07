@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content mb-16">
+  {% for t in topicos.items %}
+  <h1 class="title mb-16 fs-26">{{ t.titulo }}</h1>
+  <h2 class="fs-22 mb-16 title">Conteúdo: </h2>
+  <p class="mb-16 fs-18">{{ t.conteudo }}</p>
+  {% endfor %}
+
+  <div class="nav">
+    {% if topicos.has_prev %}
+    <a class="btn btn-blue center mb-16" href="{{ url_for('topico', curso_id=curso_id, pagina=topicos.prev_num) }}">
+      <i class="bi bi-chevron-left"></i>
+    </a>
+    {% else %}
+    <a class="btn btn-blue center mb-16" style="background: #C0C0C0;">
+      <i class="bi bi-chevron-left"></i>
+    </a>
+    {% endif %}
+    {% if topicos.has_next %}
+    <a class="btn btn-blue center mb-16" href="{{ url_for('topico', curso_id=curso_id, pagina=topicos.next_num) }}">
+      <i class="bi bi-chevron-right"></i>
+    </a>
+    {% else %}
+    <a class="btn btn-blue center mb-16" href="{{ url_for('finalizarCurso', curso_id=curso_id) }}">
+      Finalizar curso
+    </a>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

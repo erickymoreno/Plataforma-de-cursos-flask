@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+    <h1 class="title fs-26 mb-16 center">Certificado</h1>
+    <div class="mb-32">
+        {% for usuario, curso, matricula, certificado in query %}
+
+        <p class="fs-22">Certificamos para os devidos fins que <span class="title">{{usuario.nome}}</span> concluiu o
+            curso de {{curso.nome}} com <span class="title">carga horária de {{curso.carga_horaria}} horas</span>. </p>
+    </div>
+    <h2 class="fs-22 mb-16">Tópicos abordados</h2>
+    <div class="center mb-16">
+        <ul class="">
+            {% for t in topico %}
+            <li class="mb-16">{{t.titulo}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <p class="mb-32 center">{{ data }}</p>
+    <div class="around mb-32">
+        <img class=""src="{{ url_for('static', filename='img/Logoifro.png') }}">
+        <img class="" src="{{ url_for('static', filename='img/Logofslab.png') }}">
+    </div>
+    <p class="mb-16">Código do certificado: {{ certificado.id}}</p>
+    {% endfor %}
+    <div class="mb-16">
+        <p>Validação em: <a class="link text-black"
+                href="https://fslab.ifro.edu.br/cursos/certificados/validar">https://fslab.ifro.edu.br/cursos/certificados/validar</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

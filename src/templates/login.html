@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+    <div class="form-title mb-16">
+        <h1 class="title fs-26">Login</h1>
+    </div>
+    <div class="form">
+        <form action="/login" method="POST">
+            <div class="form-group mb-16">
+                <label for="inputEmail" class="form-label mb-16"><i class="bi bi-envelope-fill"></i> Email</label>
+                <input type="email" name="inputEmail" id="inputEmail" class="form-input" required>
+            </div>
+            <div class="form-group mb-16">
+                <label for="inputSenha" class="form-label mb-16"><i class="bi bi-lock-fill"></i> Senha</label>
+                <input type="password" name="inputSenha" id="inputSenha" class="form-input" required>
+            </div>
+            {% if mensagem %}
+            <div class="mb-16 text-red"><i class="bi bi-exclamation-circle"></i>
+                {{mensagem}}</div>
+            {% endif %}
+            <div class="mb-16">
+                <input type="submit" value="Entrar" class="btn btn-blue fs-22 w-100"></input>
+            </div>
+        </form>
+        <div class="center">
+            <a class="text-link fs-22" href="/esqueci_minha_senha">Esqueci minha senha</a>
+        </div>
+    </div>
+    {% endblock %}

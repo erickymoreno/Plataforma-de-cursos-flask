@@ -1,0 +1,380 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Quicksand;
+    box-sizing: border-box;
+    text-decoration: none;
+    overflow-wrap: break-word !important;
+}
+
+.center {
+    text-align: center;
+}
+
+.mb-16 {
+    margin-bottom: 16px !important;
+}
+
+.mb-32 {
+    margin-bottom: 32px !important;
+}
+
+.p-0 {
+    padding: 0 !important;
+}
+.d-flex {
+    display: flex !important;
+}
+.around{
+    display: flex !important;
+    justify-content: space-around !important;
+}
+
+.gap-16 {
+    gap: 16px !important;
+}
+
+.border-black {
+    border-color: #000000 !important;
+}
+
+.fs-18 {
+    font-size: 18px !important;
+}
+
+.fs-22 {
+    font-size: 22px !important;
+}
+
+.fs-26 {
+    font-size: 26px !important;
+}
+
+.fs-32 {
+    font-size: 32px !important;
+}
+
+.title {
+    font-weight: bold !important;
+}
+
+.link {
+    text-decoration: underline !important;
+    overflow-wrap: break-word !important;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+main {
+    position: relative;
+    width: 100%;
+}
+
+.text-black {
+    color: #000000 !important;
+}
+
+.text-white {
+    color: #FFFFFF !important;
+}
+
+.text-red {
+    color: #FF0000 !important;
+}
+
+.main {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    align-items: center;
+}
+
+header {
+    background-color: #5A90FB;
+    color: #FFFFFF;
+    box-shadow: 0px 5px 15px rgba(37, 50, 55, 0.25);
+    padding: 8px 0;
+    z-index: 500;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.header {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: space-between;
+    position: sticky;
+}
+
+#btn-menu {
+    display: none;
+}
+
+.menu {
+    display: flex;
+    gap: 16px;
+}
+
+.nav-item {
+    display: block;
+    padding: 8px 0;
+}
+
+.content {
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: left;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.content ul {
+    align-items: center;
+    display: inline-block;
+    text-align: left;
+}
+
+.badge {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    line-height: 50px;
+    color: #5A90FB;
+}
+
+.badge img {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #5A90FB;
+    border-radius: 100px;
+    object-fit: cover;
+    margin-right: 16px;
+}
+.cards{
+    display: grid;
+  grid-gap: 16px;
+  grid-template-columns: repeat(3, 1fr); 
+
+}
+.card {
+    display: block;
+    position: relative;
+    width: 100%;
+    border: 1px solid #5A90FB;
+    padding: 16px;
+}
+
+.card-title {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.card img {
+    width: 75px;
+    height: 75px;
+    border: 1px solid #5A90FB;
+    border-radius: 100px;
+    object-fit: cover;
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.tag {
+    padding: 4px 12px;
+    border-radius: 100px;
+    background: #F38282;
+    font-size: 9px;
+}
+
+.search-bar {
+    width: 100%;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #000000;
+}
+
+.input-search {
+    width: 100%;
+    height: 100%;
+    padding: 0 8px;
+    border: none;
+    font-size: 24px;
+}
+
+.input-btn {
+    height: 100%;
+    padding: 0 8px;
+    border: none;
+    background: #FFFFFF;
+}
+
+.form-group {
+    color: #000000;
+}
+
+.form-label {
+    display: block;
+}
+
+.form-input {
+    border: 1px solid #5A90FB;
+    height: 40px;
+    width: 100%;
+    padding: 8px;
+    background: #FFFFFF;
+    font-size: 16px;
+}
+
+.form {
+    width: 100%;
+    font-size: 18px;
+}
+
+.btn {
+    display: inline-block;
+    color: #FFFFFF;
+    line-height: 50px;
+    border: none;
+    padding: 0 8px;
+}
+
+.btn-blue {
+    background: #5A90FB !important;
+}
+
+.btn-green {
+    background: #076319
+}
+
+.btn-gray {
+    background: #C4C4C4 !important;
+}
+
+.nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.form-title {
+    text-align: center;
+    width: 100%;
+}
+
+.text-link {
+    text-decoration: none;
+    color: #5A90FB
+}
+.btn-page{
+    width:45px !important;
+    height: 45px !important;
+}
+
+@media(max-width: 1200px) {
+
+    .header,
+    .content {
+        padding: 0 16px;
+    }
+    .cards { 
+        grid-template-columns: repeat(2, 1fr);
+     }
+    
+}
+
+@media (max-width:600px) {
+    .header {
+        flex-direction: row-reverse;
+        box-sizing: border-box;
+    }
+
+    .menu {
+        display: block;
+        position: absolute;
+        width: 0;
+        left: 0;
+        background: #5A90FB;
+        height: 100vh;
+        z-index: 999;
+        transition: .7s;
+        visibility: hidden;
+        white-space: nowrap;
+        margin-top: 11px;
+        overflow-x: hidden;
+    }
+
+    .nav-item {
+        padding: 8px 0;
+        margin: 0 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    #nav.active .menu {
+        width: 75%;
+        visibility: visible;
+        overflow-x: auto;
+        box-shadow: 25vh 0 0 0 rgba(0, 0, 0, 0.45);
+    }
+
+    #btn-menu {
+        display: flex;
+        padding: 8px 16px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: 8px;
+    }
+
+    .menu-icon {
+        width: 30px;
+        border-top: 2px solid;
+        display: block;
+        color: #FFFFFF;
+    }
+
+    .menu-icon::before,
+    .menu-icon::after {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 2px;
+        margin-top: 8px;
+        background: currentColor;
+        transition: .3s;
+        position: relative;
+    }
+
+    #nav.active .menu-icon {
+        border-top-color: transparent;
+    }
+
+    #nav.active .menu-icon::before {
+        transform: rotate(-135deg);
+    }
+
+    #nav.active .menu-icon::after {
+        transform: rotate(135deg);
+        top: -10px;
+    }
+    .cards { 
+        grid-template-columns: repeat(1, 1fr);
+     }
+    
+}

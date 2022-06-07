@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+    <form action="/" method="POST">
+        <div class="search-bar mb-16">
+            <input type="text" name="inputSearch" id="inputSearch" class="input-search" placeholder="Ex: git">
+
+            <button class="input-btn" type="submit">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </form>
+
+    {% if mensagem %}
+    <div class="mb-16 text-red"><i class="bi bi-exclamation-circle"></i>
+        {{mensagem}}</div>
+    {% endif %}
+
+    {% if resultados %}
+    <p class="mb-16 title">Resultados da pesquisa:</p>
+    <div class="cards">
+    {% for r in resultados %}
+        <div class="card mb-16">
+            <a href="/curso/{{ r.id }}" class="text-black">
+                <div class="card-title">
+                    <h4>{{ r.nome }}</h4>
+                    <img src="{{ url_for('static', filename='download.jfif') }}">
+                </div>
+                <div class="card-body">
+                    <p>{{ r.carga_horaria }} horas</p>
+                    <div class="tag">
+                        <p>{{ r.tag }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% for usuario, curso, cursa in matriculas %}
+    <div class="card mb-16">
+        <a href="/curso/{{ curso.id }}" class="text-black">
+            <div class="card-title">
+                <h4>{{ curso.nome }}</h4>
+                <img src="{{ url_for('static', filename='download.jfif') }}">
+            </div>
+            <div class="card-body">
+                <p>{{ curso.carga_horaria }} horas</p>
+                <div class="tag">
+                    <p>{{ curso.tag }}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+    <p class="mb-16 title">{{ count }} cursos disponíveis:</p>
+
+    <div class="cards">
+        {% for c in cursos %}
+        <div class="card">
+            <a href="/curso/{{ c.id }}" class="text-black">
+                <div class="card-title">
+                    <h4>{{ c.nome }}</h4>
+                    <img src="{{ url_for('static', filename='download.jfif') }}">
+    {% for c in cursos %}
+    <div class="card mb-16">
+        <a href="/curso/{{ c.id }}" class="text-black">
+            <div class="card-title">
+                <h3 class="fs-22">{{ c.nome }}</h3>
+                <img src="{{ url_for('static', filename='download.jfif') }}">
+            </div>
+            <div class="card-body">
+                <p>{{ c.carga_horaria }} horas</p>
+                <div class="tag">
+                    <p>{{ c.tag }}</p>
+                </div>
+                <div class="card-body">
+                    <p>{{ c.carga_horaria }} horas</p>
+                    <div class="tag">
+                        <p>{{ c.tag }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="center w-100">
+        <nav class="nav-item fs-18 center">
+            {% for p in range( total_pagina - 5)%}
+            {% if p == pagina_atual - 1 %}
+            <a class="text-white btn btn-blue text-white btn-page center " {% else %} <a
+                class="text-black btn btn-gray btn-page center" {% endif %} href="/pagina/{{ p + 1 }}">{{p + 1}}</a>
+            {% endfor %}
+        </nav>
+    </div>
+</div>
+{% endblock %}
